@@ -26,6 +26,14 @@ function initMap(loc) {
       center: loc,
       zoom: 8
    });
+
+
+   // map.setCenter(results[0].geometry.location);//center the map over the result
+   //place a marker at the location
+   var marker = new google.maps.Marker({
+      map: map,
+      position: loc
+   });
 }
 
 
@@ -53,9 +61,13 @@ function getLocation(){
 
          var latitude = results[0].geometry.location.lat();
          var longitude = results[0].geometry.location.lng();
+
          var location = {};
+
          location.lat = latitude;
          location.lng = longitude;
+
+
          initMap(location);
          // map.setCenter(results[0].geometry.location);//center the map over the result
          // //place a marker at the location
@@ -67,7 +79,5 @@ function getLocation(){
          alert('Geocode was not successful for the following reason: ' + status);
       }
    });
-
-
 
 }
