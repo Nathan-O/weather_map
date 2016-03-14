@@ -57,7 +57,7 @@ function getLocation(){
    $("#location").val('');
 
    geocoder.geocode({address: text}, function(results, status){
-      if (status == google.maps.GeocoderStatus.OK){
+      if (status === google.maps.GeocoderStatus.OK){
 
          var latitude = results[0].geometry.location.lat();
          var longitude = results[0].geometry.location.lng();
@@ -81,3 +81,10 @@ function getLocation(){
    });
 
 }
+
+var requestObj = {};
+requestObj.origin = "";
+requestObj.destination = "";
+requestObj.travelMode = ""; // ???????????*
+
+var routes = new google.maps.DirectionService();
