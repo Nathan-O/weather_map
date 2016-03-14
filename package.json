@@ -1,0 +1,29 @@
+{
+  "name": "weather_map",
+  "version": "1.0.0",
+  "description": "A web application that allows users to see weather predictions along a desired trip route.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathan-O/weather_map.git"
+  },
+  "author": "Nathan Ockerman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathan-O/weather_map/issues"
+  },
+  "homepage": "https://github.com/Nathan-O/weather_map#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.7",
+    "nodemon": "^1.9.1"
+  }
+}

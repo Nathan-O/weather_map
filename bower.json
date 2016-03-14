@@ -1,0 +1,22 @@
+{
+  "name": "weather_map",
+  "description": "A web application that allows users to see weather predictions along a desired trip route.",
+  "main": "server.js",
+  "authors": [
+    "Nathan Ockerman"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Nathan-O/weather_map",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.1"
+  }
+}
