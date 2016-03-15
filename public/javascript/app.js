@@ -103,8 +103,14 @@ function initMap(){
 
 }
 
-
-
+/*
+NOTE: Map 'Zoom Level' generals:
+1: World
+5: Landmass/continent
+10: City
+15: Streets
+20: Buildings
+*/
 
 function renderMap(locations) {
    console.log("In renderMap()");
@@ -139,6 +145,32 @@ function renderMap(locations) {
 
 
 
+var routes = new google.maps.DirectionsService();
+var renderer = new google.maps.DirectionsRenderer();
+
+
+function setRoute(){
+
+
+   var requestObj = {};
+   requestObj.origin = "";
+   requestObj.destination = "";
+   requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
+
+   routes.route();
+
+
+}
+
+
+
+
+
+
+var requestObj = {};
+requestObj.origin = "";
+requestObj.destination = "";
+requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
 
 
 
@@ -188,14 +220,7 @@ function renderMap(locations) {
 
 
 
-/*
-NOTE: Map 'Zoom Level' generals:
-1: World
-5: Landmass/continent
-10: City
-15: Streets
-20: Buildings
-*/
+
 // function initMap(orgLoc, destLoc) {
 //    console.log("In initMap()");
 //    console.log(orgLoc);
@@ -391,29 +416,3 @@ NOTE: Map 'Zoom Level' generals:
 //
 //
 //
-// // var routes = new google.maps.DirectionsService();
-// // var renderer = new google.maps.DirectionsRenderer();
-// //
-// //
-// // function setRoute(){
-// //
-// //
-// //    var requestObj = {};
-// //    requestObj.origin = "";
-// //    requestObj.destination = "";
-// //    requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
-// //
-// //    routes.route();
-// //
-// //
-// // }
-//
-//
-//
-//
-//
-//
-// // var requestObj = {};
-// // requestObj.origin = "";
-// // requestObj.destination = "";
-// // requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
