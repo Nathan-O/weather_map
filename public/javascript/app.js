@@ -136,6 +136,8 @@ function renderMap(locations) {
       map: map,
       position: locations[1]
    });
+
+   setRoute(locations);
 }
 
 
@@ -149,19 +151,21 @@ var routes = new google.maps.DirectionsService();
 var renderer = new google.maps.DirectionsRenderer();
 
 
-function setRoute(){
+function setRoute(locs){
 
 
    var requestObj = {};
-   requestObj.origin = "";
-   requestObj.destination = "";
-   requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
+   requestObj.origin = locs[0];
+   requestObj.destination = locs[1];
+   requestObj.travelMode = google.maps.TravelMode[DRIVING]; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
 
    // routes.route();
 
    routes.route(requestObj, function(result, status){
       if (status === google.maps.DirectionsService.OK) {
          //
+         renderer.setMap(map);
+         renderer.setDirections(response);
       } else {
          alert("Something went wrong. Status: " + status);
       }
