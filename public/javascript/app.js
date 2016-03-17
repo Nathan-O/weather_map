@@ -10,8 +10,8 @@ $(document).ready(function(){
       initMap();
       // console.log("After");
       // console.log(coords);
-      var test = $("#travel-select").val();
-      console.log(test);
+      // var test = $("#travel-select").val();
+      // console.log(test);
    });
 });
 
@@ -155,19 +155,20 @@ var renderer = new google.maps.DirectionsRenderer();
 
 function setRoute(locs){
 
+   var selectedTravel = $("#travel-select").val();
 
    var requestObj = {};
    requestObj.origin = locs[0];
    requestObj.destination = locs[1];
-   requestObj.travelMode = google.maps.TravelMode[DRIVING]; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
+   requestObj.travelMode = google.maps.TravelMode[selectedTravel]; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
 
    // routes.route();
 
    routes.route(requestObj, function(result, status){
-      if (status === google.maps.DirectionsService.OK) {
+      if (status === google.maps.DirectionsStatus.OK) {
          //
          renderer.setMap(map);
-         renderer.setDirections(response);
+         renderer.setDirections(result);
       } else {
          alert("Something went wrong. Status: " + status);
       }
