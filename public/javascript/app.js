@@ -140,7 +140,7 @@ function renderMap(locations) {
 
 
 
-
+// call setRoute() in render map, send locations array from renderMap()
 
 
 
@@ -157,8 +157,15 @@ function setRoute(){
    requestObj.destination = "";
    requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
 
-   routes.route();
+   // routes.route();
 
+   routes.route(requestObj, function(result, status){
+      if (status === google.maps.DirectionsService.OK) {
+         //
+      } else {
+         alert("Something went wrong. Status: " + status);
+      }
+   });
 
 }
 
