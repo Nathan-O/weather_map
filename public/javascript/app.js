@@ -10,6 +10,8 @@ $(document).ready(function(){
       initMap();
       // console.log("After");
       // console.log(coords);
+      var test = $("#travel-select").val();
+      console.log(test);
    });
 });
 
