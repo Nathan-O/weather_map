@@ -174,10 +174,10 @@ function setRoute(){
 
 
 
-var requestObj = {};
-requestObj.origin = "";
-requestObj.destination = "";
-requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
+// var requestObj = {};
+// requestObj.origin = "";
+// requestObj.destination = "";
+// requestObj.travelMode = ""; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
 
 
 
