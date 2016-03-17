@@ -1,17 +1,9 @@
 $(document).ready(function(){
    console.log("Sanity");
 
-   // initMap();
-
    $("#location-submit").on("click", function(e){
-      // event.preventDefault();
       console.log("hi");
-      // var coords = getLocation();
       initMap();
-      // console.log("After");
-      // console.log(coords);
-      // var test = $("#travel-select").val();
-      // console.log(test);
    });
 });
 
@@ -34,13 +26,6 @@ function initMap(){
    var originLoc = $("#origin-loc").val();
    var destinationLoc = $("#destination-loc").val();
 
-   // locs.push(originLoc);
-   // locs.push(destinationLoc);
-   //
-   // console.log(locs);
-
-   // console.log(originLoc);
-   // console.log(destinationLoc);
 
    $("#origin-loc").val('');
    $("#destination-loc").val('');
@@ -54,18 +39,11 @@ function initMap(){
          var latitude = results[0].geometry.location.lat();
          var longitude = results[0].geometry.location.lng();
 
-         // var location = {};
-         // coord = {};
          var orgLoc = {};
          orgLoc.lat = latitude;
          orgLoc.lng = longitude;
 
-         // console.log(coord);
-
-         // coordinates.push(destCoord);
-         // initMap(location);
          coords.push(orgLoc);
-
 
 
          geocoder.geocode({address: destinationLoc}, function(results, status){
@@ -76,26 +54,18 @@ function initMap(){
                var latitude = results[0].geometry.location.lat();
                var longitude = results[0].geometry.location.lng();
 
-               // var location = {};
-               // coord = {};
                var destLoc = {};
                destLoc.lat = latitude;
                destLoc.lng = longitude;
 
-               // console.log(coord);
-
-               // coordinates.push(destCoord);
-               // initMap(location);
                coords.push(destLoc);
 
                renderMap(coords);
-
 
             } else {
                alert('Geocode was not successful for the following reason: ' + status);
             }
          });
-
 
 
       } else {
@@ -117,17 +87,12 @@ NOTE: Map 'Zoom Level' generals:
 function renderMap(locations) {
    console.log("In renderMap()");
    console.log(locations);
-   // console.log(orgLoc);
-   // console.log(destLoc);
 
    map = new google.maps.Map(document.getElementById('map'), {
-      // center: {lat: -34.397, lng: 150.644},
       center: locations[0],
       zoom: 7
    });
 
-
-   // map.setCenter(results[0].geometry.location);//center the map over the result
    //place a marker at the location
    var orgMarker = new google.maps.Marker({
       map: map,
@@ -144,29 +109,21 @@ function renderMap(locations) {
 
 
 
-// call setRoute() in render map, send locations array from renderMap()
-
-
-
-
 var routes = new google.maps.DirectionsService();
 var renderer = new google.maps.DirectionsRenderer();
 
 
 function setRoute(locs){
-
+   // Value pulled from HTML travel <select>.
    var selectedTravel = $("#travel-select").val();
 
    var requestObj = {};
    requestObj.origin = locs[0];
    requestObj.destination = locs[1];
-   requestObj.travelMode = google.maps.TravelMode[selectedTravel]; // ???????????* (ex: DRIVING , WALKING , BICYCLING , TRANSIT)
-
-   // routes.route();
+   requestObj.travelMode = google.maps.TravelMode[selectedTravel];
 
    routes.route(requestObj, function(result, status){
       if (status === google.maps.DirectionsStatus.OK) {
-         //
          renderer.setMap(map);
          renderer.setDirections(result);
       } else {
