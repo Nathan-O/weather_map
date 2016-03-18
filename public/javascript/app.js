@@ -2,7 +2,7 @@ $(document).ready(function(){
    console.log("Sanity");
 
    $("#location-submit").on("click", function(e){
-      console.log("hi");
+      // console.log("hi");
       initMap();
    });
 });
@@ -34,7 +34,7 @@ function initMap(){
    geocoder.geocode({address: originLoc}, function(results, status){
       if (status === google.maps.GeocoderStatus.OK){
 
-         console.log("Geocoding Done.");
+         // console.log("Geocoding Done.");
 
          var latitude = results[0].geometry.location.lat();
          var longitude = results[0].geometry.location.lng();
@@ -49,7 +49,7 @@ function initMap(){
          geocoder.geocode({address: destinationLoc}, function(results, status){
             if (status === google.maps.GeocoderStatus.OK){
 
-               console.log("Geocoding Done.");
+               // console.log("Geocoding Done.");
 
                var latitude = results[0].geometry.location.lat();
                var longitude = results[0].geometry.location.lng();
@@ -85,8 +85,8 @@ NOTE: Map 'Zoom Level' generals:
 */
 
 function renderMap(locations) {
-   console.log("In renderMap()");
-   console.log(locations);
+   // console.log("In renderMap()");
+   // console.log(locations);
 
    map = new google.maps.Map(document.getElementById('map'), {
       center: locations[0],
@@ -149,6 +149,22 @@ First things first, get the zip codes.
 
 
 
+// === A method which returns the Vertex number at a given distance along the path ===
+// === Returns null if the path is shorter than the specified distance ===
+
+// GPolygon.prototype.GetIndexAtDistance = function(metres) {
+//   // some awkward special cases
+//   if (metres === 0) return this.getVertex(0);
+//   if (metres < 0) return null;
+//   var dist=0;
+//   var olddist=0;
+//   for (var i=1; (i < this.getVertexCount() && dist < metres); i++) {
+//     olddist = dist;
+//     dist += this.getVertex(i).distanceFrom(this.getVertex(i-1));
+//   }
+//   if (dist < metres) {return null;}
+//   return i;
+// };
 
 
 
