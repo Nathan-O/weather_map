@@ -124,6 +124,7 @@ function setRoute(locs){
 
    routes.route(requestObj, function(result, status){
       if (status === google.maps.DirectionsStatus.OK) {
+         console.log(result);
          renderer.setMap(map);
          renderer.setDirections(result);
       } else {
@@ -136,7 +137,15 @@ function setRoute(locs){
 
 
 
+/*
+NOTE:
 
+Now that I have the routes working I need to devise a way to get the zip codes for locations along route in 30 mile incraments (50 mile?)
+
+Return these zip codes as an array to be fed into which ever weather api I use.
+
+First things first, get the zip codes.
+*/
 
 
 
